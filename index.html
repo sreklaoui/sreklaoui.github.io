@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Said Reklaoui</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: #1a1a2e;
+            color: #f1f1f1;
+            /* Keep default cursor visible */
+        }
+        
+        /* Custom cursor styling */
+        .cursor-dot,
+        .cursor-dot-outline {
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            z-index: 9999;
+        }
+        
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #e94560;
+        }
+        
+        .cursor-dot-outline {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(233, 69, 96, 0.2);
+        }
+        
+        /* Cursor particles */
+        .cursor-particle {
+            position: absolute;
+            background: rgba(233, 69, 96, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+        }
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Particle background container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #e94560;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(233, 69, 96, 0.8);
+        }
+        section {
+            padding: 25px 20px;
+            transition: all 0.5s ease-in-out;
+        }
+        .scroll-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .scroll-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.85);
+            z-index: -1;
+        }
+        .content-wrapper {
+            max-width: 1200px;
+            width: 90%;
+            z-index: 2;
+        }
+        h1, h2 {
+            color: #e94560;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(to right, #e94560, #ff9e7d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 0px 10px rgba(233, 69, 96, 0.3);
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .skill {
+            background: rgba(15, 52, 96, 0.7);
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            background: rgba(233, 69, 96, 0.2);
+        }
+        .skill i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        a {
+            color: #e94560;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff6b6b;
+        }
+        .job {
+            background: rgba(15, 52, 96, 0.7);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #e94560;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .company-logo {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .job:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        .job h4 {
+            color: #e94560;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            border-left: 3px solid #e94560;
+            padding-left: 10px;
+        }
+        .job ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        .job li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .job strong {
+            color: #e94560;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        /* Header skills tags */
+        .header-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .header-skill {
+            background: rgba(15, 52, 96, 0.7);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .header-skill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(233, 69, 96, 0.3);
+            background: rgba(233, 69, 96, 0.2);
+        }
+        .social-links a {
+            font-size: 28px;
+            transition: transform 0.3s ease, color 0.3s ease;
+            color: #f1f1f1;
+        }
+        .social-links a:hover {
+            transform: scale(1.3);
+            color: #e94560;
+        }
+        /* Progress bars for skills */
+        .skill-progress {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #e94560, #ff9e7d);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: rgba(233, 69, 96, 0.5);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #e94560;
+            border: 4px solid #16213e;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::after {
+            right: -14px;
+        }
+        .timeline-item:nth-child(even)::after {
+            left: -14px;
+        }
+        /* Floating elements */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        /* Typing effect */
+        .typing-text {
+            border-right: 4px solid #e94560;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #e94560 }
+        }
+        /* Nav menu */
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(15, 52, 96, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
+        }
+        .nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+        .nav a {
+            color: #f1f1f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        .nav a:hover, .nav a.active {
+            color: #e94560;
+        }
+        /* Dark/Light mode toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(15, 52, 96, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(233, 69, 96, 0.3);
+            border-radius: 50%;
+            border-top-color: #e94560;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .core-expertise-list {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 30px 0 40px 0;
+        }
+        
+        /* Wave divider styles */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            line-height: 0;
+            transform: translateZ(0);
+            margin-top: -1px;
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            transform-origin: top center;
+        }
+        
+        .wave-divider path {
+            animation: wave-animation 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes wave-animation {
+            0% {
+                d: path("M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,149.3C960,128,1056,128,1152,149.3C1248,171,1344,213,1392,234.7L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z");
+            }
+            50% {
+                d: path("M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,138.7C672,139,768,181,864,186.7C960,192,1056,160,1152,160C1248,160,1344,192,1392,208L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z");
+            }
+            100% {
+                d: path("M0,128L48,144C96,160,192,192,288,213.3C384,235,480,245,576,234.7C672,224,768,192,864,176C960,160,1056,160,1152,176C1248,192,1344,224,1392,240L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z");
+            }
+        }
+        .core-expertise-item {
+            background: rgba(15, 52, 96, 0.7);
+            border-radius: 20px;
+            padding: 30px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.20);
+            transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .core-expertise-item:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 24px rgba(233,69,96,0.25);
+            background: rgba(233, 69, 96, 0.12);
+        }
+        .expertise-icon {
+            font-size: 2.8em;
+            margin-bottom: 14px;
+            color: #e94560;
+            filter: drop-shadow(0 2px 8px #e9456055);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        #profile .content-wrapper p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#profile">About</a></li>
+            <li><a href="#employment">Work</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header id="home">
+        <div id="particles-js"></div>
+        <div class="header-content">
+            <img src="profile-picture.png" alt="Profile Picture" class="profile-img" data-aos="zoom-in">
+            <h1 class="typing-text" data-aos="fade-up" data-aos-delay="300">Said Reklaoui</h1>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <p><i class="fas fa-map-marker-alt"></i> Barcelona, Spain | <i class="fas fa-envelope"></i> said.rkc@gmail.com | <i class="fas fa-phone"></i> +34 665326660</p>
+                <p class="typing-effect">Software Engineer / AI Engineer & Father</p>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="https://www.linkedin.com/in/said-reklaoui-chouaibi-14b42b33" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:said.rkc@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+                
+                <div class="header-skills" data-aos="fade-up" data-aos-delay="800">
+                    <span class="header-skill">Python</span>
+                    <span class="header-skill">Go</span>
+                    <span class="header-skill">PHP</span>
+                    <span class="header-skill">LLMs</span>
+                    <span class="header-skill">Machine Learning</span>
+                    <span class="header-skill">Microservices</span>
+                    <span class="header-skill">Cloud</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#0f3460" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,149.3C960,128,1056,128,1152,149.3C1248,171,1344,213,1392,234.7L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+    </div>
+    
+    <!-- Profile Section -->
+    <section class="scroll-section" id="profile" style="background-image: url('https://source.unsplash.com/random/1920x1080/?technology');">
+        <div class="content-wrapper">
+            <h2 data-aos="fade-right">Profile</h2>
+            <p data-aos="fade-up">Technology leader with 10+ years of experience architecting and delivering robust software solutions. Proven track record in leading high-performing engineering teams, driving digital transformation, and implementing AI-powered systems. Adept at designing scalable architectures, optimizing development processes, and mentoring talent. Passionate about leveraging emerging technologies to solve complex business challenges and create lasting impact.</p>
+            
+            <!-- Skill progress bars -->
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h3>Core Expertise</h3>
+                <div class="core-expertise-list">
+                    <div class="core-expertise-item" data-aos="fade-up" data-aos-delay="0">
+                        <i class="fas fa-code expertise-icon"></i>
+                        <span>Senior Software Engineer<br><small>Expert in backend, distributed systems, and API design</small></span>
+                    </div>
+                    <div class="core-expertise-item" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-robot expertise-icon"></i>
+                        <span>Artificial Intelligence Engineer<br><small>Specialist in machine learning, NLP, and automation</small></span>
+                    </div>
+                    <div class="core-expertise-item" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-chess-king expertise-icon"></i>
+                        <span>Tech Lead<br><small>Leadership in agile teams, innovation, and strategy</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Employment Section -->
+    <section class="scroll-section" id="employment" style="background-image: url('https://source.unsplash.com/random/1920x1080/?office');">
+        <div class="content-wrapper">
+            <h2 data-aos="fade-right">Employment History</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="job">
+                        <img src="logos/stayforlong_logo.jpeg" alt="Stayforlong Logo" class="company-logo">
+                        <h3>Stayforlong – Barcelona, Spain</h3>
+                        <p>October 2019 — Present</p>                     
+                        
+                        <h4>Backend Engineer</h4>
+                        <ul>
+                            <li>Developed and maintained backend services in Go and PHP, applying hexagonal architecture, Domain-Driven Design (DDD), and best practices for testing and observability.</li>
+                            <li>Designed decoupled, event-driven systems using Pub/Sub for orchestrating communication between services.</li>
+                            <li>Managed infrastructure and deployment workflows with Jenkins, Cloud Run, and Cloud SQL to ensure reliability and scalability.</li>
+                            <li>Contributed to architectural decisions and continuous improvement of engineering processes.</li>
+                        </ul>
+                        <p><strong>Key technologies:</strong> Go, PHP, Google Cloud (Cloud Run, Pub/Sub, Cloud SQL), Jenkins, Dixa API, MySQL, Docker, GitHub Actions, OpenTelemetry.</p>
+                        
+                        <h4>AI Engineer</h4>
+                        <ul>
+                            <li>Designed and implemented email classification pipelines using machine learning and NLP techniques, leveraging models such as XGBoost and fine-tuned LLMs (Gemma 3B/7B).</li>
+                            <li>Built internal annotation tools with a lightweight interface to support the manual labeling and curation process by operations teams.</li>
+                            <li>Fine-tuned and converted Hugging Face models into optimized formats (GGUF) for local inference with Ollama.</li>
+                            <li>Led the development of a core event orchestrator to automate key support flows (cancellations, modifications, hotel confirmations), integrating platforms like Dixa and Google Cloud.</li>
+                            <li>Orchestrated intelligent agents using the Model Communication Protocol (MCP) to understand customer intents and trigger automated actions via external APIs.</li>
+                            <li>Automated support workflows through multi-label classification and LLM-assisted response generation.</li>
+                        </ul>
+                        <p><strong>Key technologies:</strong> Python, XGBoost, Hugging Face, Ollama, MCP, Gemma, Pandas, GitHub Actions, Docker, LLMs.</p>
+                    </div>
+                    
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="job">
+                        <img src="logos/letgo_logo.jpeg" alt="Letgo Logo" class="company-logo">
+                        <h3>Letgo – Barcelona, Spain</h3>
+                        <p>January 2018 — October 2019</p>
+                        
+                        <h4>Backend Engineer – Automotive Vertical</h4>
+                        <ul>
+                            <li>Developed microservices in PHP using hexagonal architecture and clean code principles, with a strong focus on data consistency across systems through asynchronous projections.</li>
+                            <li>Acted as tech lead for the automotive vertical, coordinating the design and implementation of features specific to the car marketplace.</li>
+                            <li>Integrated Carfax (a leading provider of vehicle history data) to enrich car listings with verified and structured vehicle information.</li>
+                            <li>Built distributed event-driven workflows using AWS Lambda functions written in Go, with DynamoDB for scalable storage and state handling.</li>
+                            <li>Contributed to system scalability, reliability, and observability in a high-load microservices environment.</li>
+                        </ul>
+                        <p><strong>Key technologies:</strong> PHP, Go, AWS Lambda, DynamoDB, MySQL, RabbitMQ, Docker, Hexagonal Architecture, Microservices, Carfax API.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="job">
+                        <img src="logos/waynabox_logo.jpeg" alt="Waynabox Logo" class="company-logo">
+                        <h3>Senior Software Engineer, Waynabox</h3>
+                        <p>May 2017 — December 2017</p>
+                        <p>• Created a new microservice based on Symfony to manage a different internal process.<br>
+                        • Technologies used: PHP, MySQL, RabbitMQ, Docker.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="job">
+                        <img src="logos/cdmon_logo.jpeg" alt="Cdmon Logo" class="company-logo">
+                        <h3>Operations Manager, Cdmon</h3>
+                        <p>March 2016 — March 2017</p>
+                        <p>• Led a team of 4 roles (2 backends, 1 frontend, 1 DevOps) to create a new business opportunity.<br>
+                        • Integrated the team into the company.<br>
+                        • Reported as Operations Manager directly to the CEO.<br>
+                        • Technologies used: Symfony, PHP, MySQL, Docker, Elasticsearch.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="job">
+                        <img src="logos/atrapalo_com_logo.jpeg" alt="Atrapalo Logo" class="company-logo">
+                        <h3>Senior Software Engineer, Atrapalo</h3>
+                        <p>April 2013 — March 2016</p>
+                        <p>Lead projects from start to finish.<br>
+                        • Technologies used: Symfony, PHP, MySQL, Docker, Elasticsearch,DDD, TDD.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section class="scroll-section" id="education" style="background-image: url('https://source.unsplash.com/random/1920x1080/?university');">
+        <div class="content-wrapper">
+            <h2 data-aos="fade-right">Education</h2>
+            
+            <!-- Main Education -->
+            <div class="job" data-aos="zoom-in">
+                <img src="logos/university_of_barcelona_logo.jpeg" alt="Universidad de Barcelona Logo" class="company-logo">
+                <h3>Computer Science Degree, Universidad de Barcelona</h3>
+                <p>January 2007 — January 2010</p>
+            </div>
+            
+            <h3 data-aos="fade-up" style="margin-top: 40px;">Specializations</h3>
+            
+            <div class="job" data-aos="zoom-in">
+                <img src="logos/unir_logo.jpeg" alt="UNIR Logo" class="company-logo">
+                <h3>Master's in Artificial Intelligence, Unir</h3>
+                <p>April 2024 - January 2025</p>
+            </div>
+            
+            <div class="job" data-aos="zoom-in" data-aos-delay="200">
+                <img src="logos/uoc_logo.jpeg" alt="UOC Logo" class="company-logo">
+                <h3>Software Engineer Specialist, Universitat Oberta de Catalunya</h3>
+                <p>January 2013 — January 2013</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="scroll-section" id="skills" style="background-image: url('https://source.unsplash.com/random/1920x1080/?code');">
+        <div class="content-wrapper">
+            <h2 data-aos="fade-right">Skills</h2>
+            <h3 data-aos="fade-up">Technical Skills</h3>
+            <div class="skills">
+                <!-- AI/ML Skills -->
+                <div class="skill" data-aos="zoom-in"><i class="fas fa-robot"></i> LLMs</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-brain"></i> Machine Learning</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-comment-alt"></i> NLP</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="150"><i class="fas fa-chart-line"></i> XGBoost</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-code-branch"></i> Hugging Face</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="250"><i class="fas fa-cogs"></i> Ollama</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-microchip"></i> Gemma</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="350"><i class="fas fa-table"></i> Pandas</div>
+                
+                <!-- Programming Languages -->
+                <div class="skill" data-aos="zoom-in" data-aos-delay="400"><i class="devicon-python-plain colored"></i> Python</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="450"><i class="devicon-go-original-wordmark colored"></i> Golang</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="500"><i class="devicon-php-plain colored"></i> PHP</div>
+                
+                <!-- Databases -->
+                <div class="skill" data-aos="zoom-in" data-aos-delay="550"><i class="devicon-mysql-plain colored"></i> MySQL</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="600"><i class="devicon-redis-plain colored"></i> Redis</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="650"><i class="fas fa-database"></i> Cloud SQL</div>
+                
+                <!-- Cloud & Infrastructure -->
+                <div class="skill" data-aos="zoom-in" data-aos-delay="700"><i class="devicon-docker-plain colored"></i> Docker</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="750"><i class="devicon-kubernetes-plain colored"></i> Kubernetes</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="800"><i class="devicon-amazonwebservices-original colored"></i> AWS</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="850"><i class="fab fa-google"></i> Google Cloud</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="900"><i class="fas fa-cloud"></i> Cloud Run</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="950"><i class="fas fa-exchange-alt"></i> Pub/Sub</div>
+                
+                <!-- Frameworks & Tools -->
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1000"><i class="devicon-symfony-original colored"></i> Symfony</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1050"><i class="devicon-laravel-plain colored"></i> Laravel</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1100"><i class="fab fa-github"></i> GitHub Actions</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1150"><i class="fab fa-jenkins"></i> Jenkins</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1200"><i class="fas fa-bolt"></i> Kafka</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1250"><i class="fas fa-search"></i> Elasticsearch</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1300"><i class="fas fa-chart-bar"></i> OpenTelemetry</div>
+                
+                <!-- Methodologies -->
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1350"><i class="fas fa-sitemap"></i> DDD</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1400"><i class="fas fa-project-diagram"></i> Hexagonal Architecture</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1450"><i class="fas fa-vial"></i> TDD</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="1500"><i class="fas fa-users"></i> Leadership</div>
+            </div>
+            
+            <h3 data-aos="fade-up" style="margin-top: 30px;">Languages</h3>
+            <div class="skills">
+                <div class="skill" data-aos="zoom-in"><i class="fas fa-flag"></i> English (Fluent)</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-flag"></i> Spanish (Native)</div>
+                <div class="skill" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-flag"></i> Catalan (Native)</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- No Contact Section at the bottom -->
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: false,
+                mirror: true
+            });
+            
+            // Initialize particles.js
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#e94560"
+                    },
+                    "shape": {
+                        "type": "circle",
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#e94560",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Typing effect for subtitle
+            const text = "Software Engineer & AI Engineer";
+            const typingEffect = document.querySelector('.typing-effect');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typingEffect.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            // Clear the element first
+            typingEffect.textContent = "";
+            setTimeout(typeWriter, 1500);
+            
+            // Animate progress bars
+            setTimeout(() => {
+                document.querySelectorAll('.progress').forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                });
+            }, 1000);
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active class
+                    document.querySelectorAll('.nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Scroll to section
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Update active nav link on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                document.querySelectorAll('section, header').forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - sectionHeight/3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                document.querySelectorAll('.nav a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Dark/Light mode toggle
+            const themeToggle = document.querySelector('.theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            let darkMode = true;
+            
+            themeToggle.addEventListener('click', () => {
+                if (darkMode) {
+                    // Switch to light mode
+                    document.body.style.background = '#f5f5f5';
+                    document.body.style.color = '#333';
+                    document.querySelectorAll('.job, .skill').forEach(el => {
+                        el.style.background = 'rgba(255, 255, 255, 0.8)';
+                    });
+                    document.querySelectorAll('h1, h2').forEach(el => {
+                        el.style.color = '#0f3460';
+                    });
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    // Switch to dark mode
+                    document.body.style.background = '#1a1a2e';
+                    document.body.style.color = '#f1f1f1';
+                    document.querySelectorAll('.job').forEach(el => {
+                        el.style.background = 'rgba(15, 52, 96, 0.7)';
+                    });
+                    document.querySelectorAll('.skill').forEach(el => {
+                        el.style.background = '#0f3460';
+                    });
+                    document.querySelectorAll('h1, h2').forEach(el => {
+                        el.style.color = '#e94560';
+                    });
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+                darkMode = !darkMode;
+            });
+            
+            // Remove preloader after page load - fixed to ensure it's removed
+            setTimeout(() => {
+                const preloader = document.querySelector('.preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            }, 1500);
+            
+            // GSAP animations for enhanced scrolling effects
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Parallax effect for background images
+            document.querySelectorAll('.scroll-section').forEach(section => {
+                const bg = section.style.backgroundImage;
+                if (bg) {
+                    gsap.to(section, {
+                        backgroundPosition: `50% ${innerHeight / 2}px`,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    });
+                }
+            });
+            
+            // Profile section entrance animation
+            const profileSection = document.querySelector('#profile');
+            const waveDivider = document.querySelector('.wave-divider');
+            
+            // Initial state - profile section is invisible
+            gsap.set(profileSection, { opacity: 0, y: 50 });
+            
+            // Wave divider animation on scroll
+            gsap.to(waveDivider, {
+                scrollTrigger: {
+                    trigger: waveDivider,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    scrub: 1,
+                    onEnter: () => {
+                        // Animate the profile section when wave divider is visible
+                        gsap.to(profileSection, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1.2,
+                            ease: "power2.out"
+                        });
+                    }
+                }
+            });
+            
+            // ===== TECH CURSOR EFFECT =====
+            // Create cursor elements - only create particles, not replacing the cursor
+            // We'll only use particles that follow the cursor, not a custom cursor dot
+            
+            // Variables for cursor position
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            // Variables for particles
+            const particles = [];
+            const particleProb = 0.2; // Probability of creating a particle
+            let lastParticleSpawn = 0;
+            
+            // Initialize particle effect
+            const initParticleEffect = () => {
+                // Add listener for cursor movement
+                document.addEventListener('mousemove', e => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    
+                    // Create particles on mouse move
+                    const now = Date.now();
+                    if (now - lastParticleSpawn > 50 && Math.random() < particleProb) {
+                        createParticle(mouseX, mouseY);
+                        lastParticleSpawn = now;
+                    }
+                });
+            };
+            
+            // Create a particle at the cursor position
+            const createParticle = (x, y) => {
+                const particle = document.createElement('div');
+                particle.classList.add('cursor-particle');
+                document.body.appendChild(particle);
+                
+                // Random size between 5 and 15 pixels
+                const size = Math.floor(Math.random() * 10) + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random direction
+                const destinationX = x + (Math.random() - 0.5) * 75;
+                const destinationY = y + (Math.random() - 0.5) * 75;
+                
+                // Set initial position
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.opacity = 1;
+                
+                // Add to particles array
+                const particleData = {
+                    element: particle,
+                    x: x,
+                    y: y,
+                    destinationX: destinationX,
+                    destinationY: destinationY,
+                    size: size,
+                    startTime: Date.now()
+                };
+                
+                particles.push(particleData);
+            };
+            
+            // Animate particles
+            const animateParticles = () => {
+                particles.forEach((particle, index) => {
+                    const timeElapsed = Date.now() - particle.startTime;
+                    const duration = 600; // Particle lifetime in ms
+                    
+                    if (timeElapsed < duration) {
+                        const progress = timeElapsed / duration;
+                        
+                        // Move particle towards destination
+                        particle.x = particle.x + (particle.destinationX - particle.x) * 0.1;
+                        particle.y = particle.y + (particle.destinationY - particle.y) * 0.1;
+                        
+                        // Fade out as it moves
+                        particle.element.style.opacity = 1 - progress;
+                        
+                        // Update position
+                        particle.element.style.transform = `translate(${particle.x - particle.element.clientWidth / 2}px, ${particle.y - particle.element.clientHeight / 2}px)`;
+                    } else {
+                        // Remove particle when animation is complete
+                        particle.element.remove();
+                        particles.splice(index, 1);
+                    }
+                });
+            };
+            
+            // Update particles animation
+            const updateParticles = () => {
+                // Animate particles
+                animateParticles();
+                
+                // Continue animation loop
+                requestAnimationFrame(updateParticles);
+            };
+            
+            // Initialize particle effect
+            initParticleEffect();
+            updateParticles();
+        });
+    </script>
+</body>
