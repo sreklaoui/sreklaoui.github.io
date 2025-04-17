@@ -495,6 +495,143 @@
             font-size: 1.15rem;
             line-height: 1.7;
         }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .content-wrapper {
+                width: 95%;
+            }
+            
+            .skill {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .job {
+                padding: 15px;
+            }
+            
+            .company-logo {
+                width: 40px;
+                height: 40px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .nav-menu {
+                padding: 10px;
+            }
+            
+            .nav-menu a {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+            
+            /* Timeline responsive fixes */
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 15px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+                left: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .skills {
+                gap: 10px;
+            }
+            
+            .skill {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .job h3 {
+                font-size: 1.1rem;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-menu a {
+                margin: 5px;
+            }
+            
+            section {
+                padding: 20px 15px;
+            }
+            
+            /* Timeline responsive fixes */
+            .timeline-item {
+                padding-left: 60px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item::after {
+                width: 15px;
+                height: 15px;
+                left: 15px;
+            }
+            
+            .job {
+                padding: 15px 15px 15px 12px;
+            }
+            
+            .job h4 {
+                font-size: 1.05rem;
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+            
+            .job ul {
+                padding-left: 15px;
+            }
+            
+            .job li {
+                font-size: 0.9rem;
+                margin-bottom: 6px;
+            }
+        }
     </style>
 </head>
 <body>
