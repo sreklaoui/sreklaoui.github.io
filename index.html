@@ -633,6 +633,288 @@
                 margin-bottom: 6px;
             }
         }
+        
+        /* Portfolio Section Styles */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+        }
+        
+        .portfolio-card {
+            background: rgba(15, 52, 96, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .portfolio-card:hover::before {
+            left: 100%;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(233, 69, 96, 0.3);
+            border-color: rgba(233, 69, 96, 0.5);
+        }
+        
+        .portfolio-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .portfolio-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .portfolio-card h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .portfolio-card p {
+            color: #f1f1f1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .tech-tag {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .portfolio-links {
+            margin-top: auto;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .portfolio-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+            color: white;
+        }
+        
+        .portfolio-link i {
+            font-size: 1.1rem;
+        }
+        
+        /* Disabled portfolio cards */
+        .portfolio-card.disabled {
+            opacity: 0.6;
+            background: rgba(15, 52, 96, 0.4);
+            border-color: rgba(233, 69, 96, 0.1);
+        }
+        
+        .portfolio-card.disabled:hover {
+            transform: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border-color: rgba(233, 69, 96, 0.1);
+        }
+        
+        .portfolio-card.disabled .portfolio-icon {
+            background: linear-gradient(135deg, #666, #888);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portfolio-link.disabled {
+            background: linear-gradient(135deg, #666, #888);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .portfolio-link.disabled:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            padding: 20px 30px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .close:hover {
+            opacity: 0.7;
+        }
+        
+        .modal-body {
+            padding: 30px;
+            color: #f1f1f1;
+            line-height: 1.6;
+        }
+        
+        .modal-body h3 {
+            color: #e94560;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .modal-body ul {
+            padding-left: 20px;
+        }
+        
+        .modal-body li {
+            margin-bottom: 8px;
+        }
+        
+        .modal-body code {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e94560;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .modal-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+        
+        .modal-tech-tag {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        /* Responsive Portfolio */
+        @media screen and (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .portfolio-card {
+                padding: 25px 20px;
+            }
+            
+            .portfolio-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .portfolio-icon i {
+                font-size: 1.5rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -646,6 +928,7 @@
         <ul>
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#profile">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#employment">Work</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -711,6 +994,84 @@
                     <div class="core-expertise-item" data-aos="fade-up" data-aos-delay="200">
                         <i class="fas fa-chess-king expertise-icon"></i>
                         <span>Tech Lead<br><small>Leadership in agile teams, innovation, and strategy</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="scroll-section" id="portfolio" style="background-image: url('https://source.unsplash.com/random/1920x1080/?artificial-intelligence');">
+        <div class="content-wrapper">
+            <h2 data-aos="fade-right">AI Portfolio</h2>
+            <p data-aos="fade-up" style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Explore my artificial intelligence projects and contributions to the AI community.</p>
+            
+            <div class="portfolio-grid">
+                <!-- RAG FAQ Agent Project -->
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="portfolio-card">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>RAG FAQ Agent with Vertex AI</h3>
+                        <p>An intelligent FAQ system built using Retrieval-Augmented Generation (RAG) architecture with Google's Vertex AI. This project demonstrates advanced NLP capabilities for automated question answering.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Vertex AI</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">NLP</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <button class="portfolio-link" onclick="openRAGModal()">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </button>
+                            <a href="https://github.com/sreklaoui/portfolio/tree/master/rag-faq-agent-vertex-ai" target="_blank" class="portfolio-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MCP Project -->
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="portfolio-card disabled">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Model Context Protocol (MCP) Agent</h3>
+                        <p>Advanced AI agent system using Model Context Protocol for intelligent orchestration and multi-modal communication. Integrating external APIs and services for automated workflows.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">MCP</span>
+                            <span class="tech-tag">LLMs</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <span class="portfolio-link disabled">
+                                <i class="fas fa-clock"></i> Coming Soon
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="portfolio-card disabled">
+                        <div class="portfolio-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>AI Master's Degree Projects</h3>
+                        <p>Comprehensive collection of projects from my Master's in Artificial Intelligence including deep learning, computer vision, NLP, and advanced machine learning implementations.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Research</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <span class="portfolio-link disabled">
+                                <i class="fas fa-clock"></i> Coming Soon
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -887,6 +1248,77 @@
             </div>
         </div>
     </section>
+    
+    <!-- RAG Project Modal -->
+    <div id="ragModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-robot"></i> RAG FAQ Agent with Vertex AI</h2>
+                <span class="close" onclick="closeRAGModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>A sophisticated Retrieval-Augmented Generation (RAG) chatbot powered by Google Vertex AI that provides intelligent customer support for travel booking services.</strong></p>
+                
+                <h3>🎯 Project Overview</h3>
+                <p>This project demonstrates the integration of modern AI technologies including vector embeddings, semantic search, and large language models to create an intelligent customer support system. The agent uses a knowledge base of FAQ documents to answer user questions accurately and contextually.</p>
+                
+                <h3>🚀 Key Features</h3>
+                <ul>
+                    <li><strong>RAG-powered responses</strong>: Combines retrieval from a knowledge base with generative AI for accurate answers</li>
+                    <li><strong>Vertex AI integration</strong>: Uses Google's Gemini 2.0 Flash model with RAG capabilities</li>
+                    <li><strong>Customer support focused</strong>: Specifically designed for travel booking inquiries</li>
+                    <li><strong>Multilingual support</strong>: Responds in the same language as the user's question</li>
+                    <li><strong>URL references</strong>: Automatically includes relevant URLs from the knowledge base</li>
+                    <li><strong>Interactive chat</strong>: Command-line interface for real-time conversations</li>
+                </ul>
+                
+                <h3>🛠️ Technical Implementation</h3>
+                <p>The system consists of several key components:</p>
+                <ul>
+                    <li><strong>Knowledge Base Deployment</strong>: JSONL format FAQ dataset uploaded to Google Cloud Storage</li>
+                    <li><strong>RAG Corpus Creation</strong>: Vertex AI processes and indexes the data for semantic retrieval</li>
+                    <li><strong>Chat Agent</strong>: Interactive Python application that handles user queries</li>
+                    <li><strong>LLM Instructions</strong>: Custom system prompts for consistent, helpful responses</li>
+                </ul>
+                
+                <h3>💻 Technology Stack</h3>
+                <div class="modal-tech-stack">
+                    <span class="modal-tech-tag">Python 3.8+</span>
+                    <span class="modal-tech-tag">Google Vertex AI</span>
+                    <span class="modal-tech-tag">Gemini 2.0 Flash</span>
+                    <span class="modal-tech-tag">Google Cloud Storage</span>
+                    <span class="modal-tech-tag">RAG Architecture</span>
+                    <span class="modal-tech-tag">Vector Embeddings</span>
+                    <span class="modal-tech-tag">Semantic Search</span>
+                </div>
+                
+                <h3>📁 Project Structure</h3>
+                <p>The project is organized with clear separation of concerns:</p>
+                <ul>
+                    <li><code>agent/</code> - Main chat agent implementation and LLM instructions</li>
+                    <li><code>data/utils/</code> - Knowledge base in JSONL format</li>
+                    <li><code>deploy/</code> - Deployment scripts for RAG corpus setup</li>
+                    <li><code>Makefile</code> - Automated build and deployment commands</li>
+                </ul>
+                
+                <h3>🎯 Use Cases</h3>
+                <p>This RAG implementation is perfect for:</p>
+                <ul>
+                    <li>Customer support automation</li>
+                    <li>FAQ systems with contextual understanding</li>
+                    <li>Travel and booking assistance</li>
+                    <li>Multilingual support scenarios</li>
+                    <li>Enterprise knowledge management</li>
+                </ul>
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <a href="https://github.com/sreklaoui/portfolio/tree/master/rag-faq-agent-vertex-ai" target="_blank" class="portfolio-link">
+                        <i class="fab fa-github"></i> View Full Project on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- No Contact Section at the bottom -->
     
@@ -1233,6 +1665,32 @@
             // Initialize particle effect
             initParticleEffect();
             updateParticles();
+        });
+        
+        // Modal functions
+        function openRAGModal() {
+            document.getElementById('ragModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeRAGModal() {
+            document.getElementById('ragModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('ragModal');
+            if (event.target === modal) {
+                closeRAGModal();
+            }
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeRAGModal();
+            }
         });
     </script>
 </body>
