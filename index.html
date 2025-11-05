@@ -378,26 +378,6 @@
         .nav a:hover, .nav a.active {
             color: #e94560;
         }
-        /* Dark/Light mode toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(15, 52, 96, 0.8);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
         /* Preloader */
         .preloader {
             position: fixed;
@@ -935,11 +915,6 @@
         </ul>
     </nav>
 
-    <!-- Theme Toggle -->
-    <div class="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </div>
-
     <!-- Header Section -->
     <header id="home">
         <div id="particles-js"></div>
@@ -1008,69 +983,80 @@
             
             <div class="portfolio-grid">
                 <!-- RAG FAQ Agent Project -->
-                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="portfolio-card">
-                        <div class="portfolio-icon">
-                            <i class="fas fa-robot"></i>
+                        <div class="project-header">
+                            <i class="fas fa-robot project-icon-minimal"></i>
+                            <h3>RAG FAQ Agent with Vertex AI</h3>
                         </div>
-                        <h3>RAG FAQ Agent with Vertex AI</h3>
-                        <p>An intelligent FAQ system built using Retrieval-Augmented Generation (RAG) architecture with Google's Vertex AI. This project demonstrates advanced NLP capabilities for automated question answering.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Vertex AI</span>
-                            <span class="tech-tag">RAG</span>
-                            <span class="tech-tag">NLP</span>
+                        
+                        <div class="project-description">
+                            <p class="project-summary">Intelligent FAQ system that uses Retrieval-Augmented Generation (RAG) to provide accurate and contextual responses.</p>
+                            
+                            <div class="project-details">
+                                <h4>What does it do?</h4>
+                                <p>This agent combines semantic search in a knowledge base with natural language generation using LLMs. When a user asks a question, the system:</p>
+                                <ul>
+                                    <li>Searches for relevant information in indexed documents</li>
+                                    <li>Uses Vertex AI to generate coherent and accurate responses</li>
+                                    <li>Significantly reduces model "hallucinations" by grounding answers in real data</li>
+                                </ul>
+                                
+                                <h4>Key Technologies</h4>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Google Cloud Platform</span>
+                                    <span class="tech-tag">Vertex AI</span>
+                                    <span class="tech-tag">LangChain</span>
+                                    <span class="tech-tag">Vector Search</span>
+                                </div>
+                            </div>
                         </div>
+                        
                         <div class="portfolio-links">
-                            <button class="portfolio-link" onclick="openRAGModal()">
-                                <i class="fas fa-info-circle"></i> Learn More
-                            </button>
-                            <a href="https://github.com/sreklaoui/raq_faq_agent_vertex_ai" target="_blank" class="portfolio-link">
-                                <i class="fab fa-github"></i> View Code
+                            <a href="https://github.com/sreklaoui/portfolio/tree/master/rag-faq-agent-vertex-ai" target="_blank" class="portfolio-link">
+                                <i class="fab fa-github"></i> View on GitHub
                             </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- MCP Project -->
-                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="portfolio-card disabled">
-                        <div class="portfolio-icon">
-                            <i class="fas fa-network-wired"></i>
+
+                <!-- RAG LLM CV Project -->
+                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <div class="project-header">
+                            <i class="fas fa-comments project-icon-minimal"></i>
+                            <h3>RAG LLM CV - Conversational Assistant</h3>
                         </div>
-                        <h3>Model Context Protocol (MCP) Agent</h3>
-                        <p>Advanced AI agent system using Model Context Protocol for intelligent orchestration and multi-modal communication. Integrating external APIs and services for automated workflows.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">MCP</span>
-                            <span class="tech-tag">LLMs</span>
-                            <span class="tech-tag">API Integration</span>
+                        
+                        <div class="project-description">
+                            <p class="project-summary">Conversational AI assistant that transforms a static CV into an interactive experience, allowing natural language questions about my professional background.</p>
+                            
+                            <div class="project-details">
+                                <h4>What does it do?</h4>
+                                <p>This application allows recruiters and visitors to interact with my CV naturally:</p>
+                                <ul>
+                                    <li>Answers specific questions about skills, experience, and projects</li>
+                                    <li>Provides additional context that doesn't fit in a traditional CV</li>
+                                    <li>Offers an intuitive chat interface built with Streamlit</li>
+                                    <li>Uses embeddings and vector search to find relevant information</li>
+                                </ul>
+                                
+                                <h4>Key Technologies</h4>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">LangChain</span>
+                                    <span class="tech-tag">Streamlit</span>
+                                    <span class="tech-tag">Vertex AI</span>
+                                    <span class="tech-tag">LLM</span>
+                                </div>
+                            </div>
                         </div>
+                        
                         <div class="portfolio-links">
-                            <span class="portfolio-link disabled">
-                                <i class="fas fa-clock"></i> Coming Soon
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="portfolio-card disabled">
-                        <div class="portfolio-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>AI Master's Degree Projects</h3>
-                        <p>Comprehensive collection of projects from my Master's in Artificial Intelligence including deep learning, computer vision, NLP, and advanced machine learning implementations.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Deep Learning</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">Research</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <span class="portfolio-link disabled">
-                                <i class="fas fa-clock"></i> Coming Soon
-                            </span>
+                            <a href="https://github.com/sreklaoui/rag-llm-cv" target="_blank" class="portfolio-link">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1078,6 +1064,63 @@
         </div>
     </section>
     
+    <!-- Modals for Portfolio Projects -->
+    <div id="rag-faq-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>RAG FAQ Agent with Vertex AI</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>This project implements an intelligent agent designed to answer frequently asked questions by leveraging a Retrieval-Augmented Generation (RAG) architecture. It uses Google Cloud's Vertex AI for advanced AI capabilities, providing accurate and context-aware responses.</p>
+                <h3>Key Features:</h3>
+                <ul>
+                    <li><strong>Retrieval-Augmented Generation (RAG):</strong> Combines a retriever (for finding relevant document chunks) and a generator (an LLM for creating human-like answers).</li>
+                    <li><strong>Vector Database:</strong> Uses a vector store to efficiently search for information based on semantic similarity.</li>
+                    <li><strong>Integration with Vertex AI:</strong> Leverages Google's powerful AI platform for embedding models and language generation.</li>
+                    <li><strong>Reduced Hallucinations:</strong> By grounding the LLM's responses in factual data from a knowledge base, the system minimizes incorrect or fabricated answers.</li>
+                </ul>
+                <h3>Tech Stack:</h3>
+                <div class="modal-tech-stack">
+                    <span class="modal-tech-tag">Python</span>
+                    <span class="modal-tech-tag">LangChain</span>
+                    <span class="modal-tech-tag">Google Vertex AI</span>
+                    <span class="modal-tech-tag">GCP</span>
+                    <span class="modal-tech-tag">Vector Search</span>
+                    <span class="modal-tech-tag">LLM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rag-cv-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>RAG LLM CV</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>This project is a conversational AI assistant that allows users to ask questions about my professional experience. It analyzes my CV and uses a Large Language Model (LLM) with a RAG pipeline to provide informative and accurate answers in real-time.</p>
+                <h3>Key Features:</h3>
+                <ul>
+                    <li><strong>Interactive CV:</strong> Transforms a static CV into an interactive, queryable resource.</li>
+                    <li><strong>Conversational Interface:</strong> Built with Streamlit to offer a user-friendly chat experience.</li>
+                    <li><strong>Natural Language Understanding:</strong> Capable of understanding and responding to a wide range of questions about my skills, experience, and projects.</li>
+                    <li><strong>Scalable Architecture:</strong> Designed to be easily adaptable to different documents and knowledge bases.</li>
+                </ul>
+                <h3>Tech Stack:</h3>
+                <div class="modal-tech-stack">
+                    <span class="modal-tech-tag">Python</span>
+                    <span class="modal-tech-tag">LangChain</span>
+                    <span class="modal-tech-tag">Streamlit</span>
+                    <span class="modal-tech-tag">Google Vertex AI</span>
+                    <span class="modal-tech-tag">LLM</span>
+                    <span class="modal-tech-tag">GCP</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Employment Section -->
     <section class="scroll-section" id="employment" style="background-image: url('https://source.unsplash.com/random/1920x1080/?office');">
         <div class="content-wrapper">
@@ -1334,10 +1377,42 @@
             // Initialize AOS
             AOS.init({
                 duration: 1000,
-                once: false,
-                mirror: true
+                once: true,
+                mirror: false
             });
-            
+
+            // Modal Logic
+            const modals = {
+                'rag-faq': document.getElementById('rag-faq-modal'),
+                'rag-cv': document.getElementById('rag-cv-modal')
+            };
+
+            const openModal = (modalId) => {
+                if (modals[modalId]) {
+                    modals[modalId].style.display = 'block';
+                }
+            };
+
+            const closeAllModals = () => {
+                for (let id in modals) {
+                    if (modals[id]) {
+                        modals[id].style.display = 'none';
+                    }
+                }
+            };
+
+            document.querySelectorAll('.modal .close').forEach(closeBtn => {
+                closeBtn.addEventListener('click', closeAllModals);
+            });
+
+            window.addEventListener('click', (event) => {
+                for (let id in modals) {
+                    if (event.target == modals[id]) {
+                        closeAllModals();
+                    }
+                }
+            });
+
             // Initialize particles.js
             particlesJS('particles-js', {
                 "particles": {
@@ -1468,43 +1543,6 @@
                         link.classList.add('active');
                     }
                 });
-            });
-            
-            // Dark/Light mode toggle
-            const themeToggle = document.querySelector('.theme-toggle');
-            const themeIcon = themeToggle.querySelector('i');
-            let darkMode = true;
-            
-            themeToggle.addEventListener('click', () => {
-                if (darkMode) {
-                    // Switch to light mode
-                    document.body.style.background = '#f5f5f5';
-                    document.body.style.color = '#333';
-                    document.querySelectorAll('.job, .skill').forEach(el => {
-                        el.style.background = 'rgba(255, 255, 255, 0.8)';
-                    });
-                    document.querySelectorAll('h1, h2').forEach(el => {
-                        el.style.color = '#0f3460';
-                    });
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    // Switch to dark mode
-                    document.body.style.background = '#1a1a2e';
-                    document.body.style.color = '#f1f1f1';
-                    document.querySelectorAll('.job').forEach(el => {
-                        el.style.background = 'rgba(15, 52, 96, 0.7)';
-                    });
-                    document.querySelectorAll('.skill').forEach(el => {
-                        el.style.background = '#0f3460';
-                    });
-                    document.querySelectorAll('h1, h2').forEach(el => {
-                        el.style.color = '#e94560';
-                    });
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-                darkMode = !darkMode;
             });
             
             // Remove preloader after page load - fixed to ensure it's removed
