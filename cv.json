@@ -1,0 +1,169 @@
+{
+  "name": "Said Reklaoui",
+  "headline": "VP of Engineering · Applied AI",
+  "tagline": "I lead engineering teams building AI systems that run in production.",
+  "location": "Barcelona, Spain",
+  "linkedin": "linkedin.com/in/said-reklaoui-chouaibi-14b42b33",
+  "github": "github.com/sreklaoui",
+  "site": "sreklaoui.github.io",
+  "summary": "VP of Engineering focused on applied AI. For the last three years I have built LLM-powered pipelines, retrieval-augmented generation, agent orchestration over MCP and fine-tuned open models on local inference, alongside AI woven through the software development lifecycle itself. What makes that work hold up is the fifteen years underneath it: shipping AI is a systems problem — evaluation, guardrails, cost, latency, observability and a team that can maintain it — and that is where architecture and engineering leadership earn their keep.",
+  "ai_focus": [
+    "LLMs & Prompt/Context Engineering",
+    "Retrieval-Augmented Generation",
+    "AI Agents & MCP",
+    "Fine-tuning & Local Inference",
+    "Evaluation & Guardrails",
+    "AI in the SDLC"
+  ],
+  "experience": [
+    {
+      "company": "Oneclick",
+      "location": "Barcelona, Spain",
+      "period": "Current",
+      "roles": [
+        {
+          "title": "VP of Engineering",
+          "highlights": [
+            "Set the engineering and AI strategy: where AI creates real leverage, where it does not, and the quality practices that let teams trust what it produces.",
+            "Built the Activity Generator Service: an LLM-powered activity generation platform with versioned prompt catalogues, schema-validated output, multimodal document processing and per-batch cost control.",
+            "Drive AI adoption across the software development lifecycle, establishing practical guardrails and reusable approaches for AI-assisted development.",
+            "Lead architecture, delivery and the development of autonomous, high-performing teams.",
+            "Partner with product, business, customers and external providers to manage technical risk and turn complex needs into sustainable solutions."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Stayforlong",
+      "location": "Barcelona, Spain",
+      "period": "Oct 2019 - 2025",
+      "roles": [
+        {
+          "title": "AI Engineer",
+          "highlights": [
+            "Designed and shipped email classification pipelines using ML and NLP, combining XGBoost with fine-tuned LLMs (Gemma 3B/7B).",
+            "Led a core event orchestrator automating key support flows — cancellations, modifications and hotel confirmations — integrating Dixa and Google Cloud.",
+            "Orchestrated intelligent agents over the Model Context Protocol (MCP) to infer customer intent and trigger automated actions through external APIs.",
+            "Fine-tuned and converted Hugging Face models to optimised formats (GGUF) for local inference with Ollama.",
+            "Built internal annotation tooling so operations teams could label and curate training data.",
+            "Automated support workflows through multi-label classification and LLM-assisted response generation."
+          ],
+          "tech": "Python, LLMs, Gemma, Hugging Face, Ollama, MCP, XGBoost, Pandas, GCP, Docker."
+        },
+        {
+          "title": "Backend Engineer",
+          "highlights": [
+            "Built and maintained backend services in Go and PHP using hexagonal architecture, DDD, and strong testing and observability practices.",
+            "Designed decoupled, event-driven systems with Pub/Sub orchestrating service-to-service communication.",
+            "Managed infrastructure and deployment workflows with Jenkins, Cloud Run and Cloud SQL."
+          ],
+          "tech": "Go, PHP, Google Cloud (Cloud Run, Pub/Sub, Cloud SQL), Jenkins, MySQL, Docker, OpenTelemetry."
+        }
+      ]
+    },
+    {
+      "company": "Letgo",
+      "location": "Barcelona, Spain",
+      "period": "Jan 2018 - Oct 2019",
+      "roles": [
+        {
+          "title": "Backend Engineer & Tech Lead, Automotive Vertical",
+          "highlights": [
+            "Tech lead for the automotive vertical, coordinating design and implementation across the car marketplace.",
+            "Built PHP microservices with hexagonal architecture and asynchronous projections for cross-system data consistency.",
+            "Integrated Carfax vehicle-history data and built event-driven workflows on AWS Lambda (Go) with DynamoDB."
+          ],
+          "tech": "PHP, Go, AWS Lambda, DynamoDB, MySQL, RabbitMQ, Docker, Microservices."
+        }
+      ]
+    },
+    {
+      "company": "Waynabox",
+      "location": "Barcelona, Spain",
+      "period": "May 2017 - Dec 2017",
+      "roles": [
+        {
+          "title": "Senior Software Engineer",
+          "highlights": [
+            "Built a Symfony microservice to manage an internal business process."
+          ],
+          "tech": "PHP, Symfony, MySQL, RabbitMQ, Docker."
+        }
+      ]
+    },
+    {
+      "company": "Cdmon",
+      "location": "Barcelona, Spain",
+      "period": "Mar 2016 - Mar 2017",
+      "roles": [
+        {
+          "title": "Operations Manager",
+          "highlights": [
+            "Led a cross-functional team of four to create and integrate a new business opportunity, reporting directly to the CEO."
+          ],
+          "tech": "PHP, Symfony, MySQL, Docker, Elasticsearch."
+        }
+      ]
+    },
+    {
+      "company": "Atrapalo",
+      "location": "Barcelona, Spain",
+      "period": "Apr 2013 - Mar 2016",
+      "roles": [
+        {
+          "title": "Senior Software Engineer",
+          "highlights": [
+            "Led software projects end to end, from design through delivery."
+          ],
+          "tech": "PHP, Symfony, MySQL, Docker, Elasticsearch, DDD, TDD."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Activity Generator Service",
+      "description": "Generates learning activities for an education platform, either authored by an LLM from a topic or source document or extracted and converted from activities printed in a PDF. Queue-based batch processing with progress and cancellation, a versioned prompt catalogue keyed by activity template and cognitive phase, schema-validated output, multimodal PDF chunking, per-batch cost estimation and tracing over every LLM call.",
+      "tech": "LLMs, Structured Outputs, Prompt Engineering, Evaluation, LangChain, LangGraph, NestJS, PostgreSQL, Redis"
+    },
+    {
+      "name": "AI-assisted Pull Request Analysis",
+      "description": "Context-aware code review platform that analyses structure, dependencies, impact and risk instead of an isolated diff, using review planning, specialised agents and parallel checks.",
+      "tech": "LLMs, AI Agents, Structured Outputs, Context Engineering"
+    },
+    {
+      "name": "RAG FAQ Agent on Vertex AI",
+      "description": "Semantic retrieval over an indexed knowledge base combined with LLM generation, grounding every answer in real data to reduce hallucinations.",
+      "tech": "Python, Vertex AI, LangChain, Vector Search"
+    },
+    {
+      "name": "RAG LLM CV — Conversational Assistant",
+      "description": "Turns a static CV into an interactive assistant answering natural-language questions over embeddings and vector search.",
+      "tech": "Python, LangChain, Streamlit, Vertex AI"
+    }
+  ],
+  "skills": {
+    "AI & ML": "LLMs, RAG, AI Agents, MCP, Context Engineering, LangChain, LangGraph, Fine-tuning, Embeddings, Vector Search, Evaluation, NLP, XGBoost, Hugging Face, Ollama, Vertex AI",
+    "Leadership": "Engineering Leadership, AI Strategy, Software Architecture, Delivery & Execution, Quality & Guardrails, Mentoring",
+    "Engineering": "Python, Go, PHP, Microservices, Event-Driven Systems, DDD, Hexagonal Architecture, TDD, Observability",
+    "Cloud & Data": "Google Cloud, AWS, Cloud Run, Pub/Sub, Kafka, Docker, Kubernetes, MySQL, Redis, Elasticsearch, OpenTelemetry"
+  },
+  "education": [
+    {
+      "title": "Master's in Artificial Intelligence",
+      "school": "UNIR",
+      "period": "2024 - 2025"
+    },
+    {
+      "title": "Software Engineering Specialist",
+      "school": "Universitat Oberta de Catalunya",
+      "period": "2013"
+    },
+    {
+      "title": "Computer Science Degree",
+      "school": "Universitat de Barcelona",
+      "period": "2007 - 2010"
+    }
+  ],
+  "languages": "Spanish (native) · Catalan (native) · English (fluent)"
+}
