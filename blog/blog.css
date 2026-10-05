@@ -1,0 +1,167 @@
+/* Shared styles for the blog pages. Tokens mirror the home page. */
+:root {
+    --ink: #101a2e;
+    --ink-soft: #24334d;
+    --body: #414f66;
+    --muted: #6b7890;
+    --line: #e2e6ed;
+    --line-strong: #cdd4e0;
+    --surface: #ffffff;
+    --surface-alt: #f6f7fa;
+    --surface-sunk: #eef0f5;
+    --accent: #c02e4c;
+    --accent-soft: rgba(192, 46, 76, 0.09);
+    --accent-ink: #9b213b;
+    --radius: 14px;
+    --shadow-sm: 0 1px 2px rgba(16, 26, 46, 0.05), 0 1px 3px rgba(16, 26, 46, 0.04);
+    --shadow-md: 0 4px 6px -2px rgba(16, 26, 46, 0.05), 0 12px 28px -8px rgba(16, 26, 46, 0.12);
+    --maxw: 1080px;
+    --measure: 700px;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--body);
+    background: var(--surface);
+    -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--accent-ink); }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.25; font-weight: 600; }
+
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: calc(var(--measure) + 48px); }
+
+/* ---------- Navigation ---------- */
+.site-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: saturate(150%) blur(10px);
+    -webkit-backdrop-filter: saturate(150%) blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 62px; }
+.nav-brand {
+    font-family: var(--serif); font-size: 1.06rem; font-weight: 600;
+    color: var(--ink); letter-spacing: -0.01em; white-space: nowrap; text-decoration: none;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+    display: block; padding: 7px 12px; border-radius: 7px;
+    font-size: 0.895rem; font-weight: 500; color: var(--muted); text-decoration: none;
+}
+.nav-links a:hover { color: var(--ink); background: var(--surface-sunk); }
+.nav-links a.active { color: var(--accent-ink); background: var(--accent-soft); }
+
+/* ---------- Blog index ---------- */
+.page-head { padding-top: 64px; padding-bottom: 28px; }
+.eyebrow {
+    display: block; font-size: 0.755rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 13px;
+}
+.page-head h1 {
+    font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.7rem);
+    letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.page-head p { margin: 0; font-size: 1.05rem; max-width: 60ch; }
+
+.post-list { list-style: none; margin: 0; padding: 0 0 80px; display: grid; gap: 18px; }
+.post-card {
+    display: block; padding: 26px 26px 24px; border: 1px solid var(--line);
+    border-radius: var(--radius); background: var(--surface); text-decoration: none; color: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.post-card:hover { border-color: var(--line-strong); box-shadow: var(--shadow-md); transform: translateY(-2px); color: inherit; }
+.post-card time { font-size: 0.815rem; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); }
+.post-card h2 { font-family: var(--serif); font-size: 1.4rem; letter-spacing: -0.012em; margin: 6px 0 8px; }
+.post-card p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+
+/* ---------- Article ---------- */
+.post-head { padding-top: 64px; padding-bottom: 8px; }
+.post-head h1 {
+    font-family: var(--serif); font-size: clamp(2rem, 5.2vw, 2.85rem);
+    letter-spacing: -0.022em; margin-bottom: 16px;
+}
+.post-dek { font-size: 1.15rem; line-height: 1.6; color: var(--ink-soft); margin: 0 0 18px; }
+.post-meta { font-size: 0.875rem; color: var(--muted); margin: 0; }
+
+.prose { padding-top: 28px; padding-bottom: 40px; }
+.prose p { margin: 0 0 20px; }
+.prose h2 {
+    font-family: var(--serif); font-size: 1.6rem; letter-spacing: -0.015em;
+    margin: 46px 0 14px;
+}
+.prose h3 { font-size: 1.06rem; margin: 30px 0 8px; }
+.prose ul, .prose ol { margin: 0 0 20px; padding-left: 22px; }
+.prose li { margin-bottom: 8px; }
+.prose strong { color: var(--ink-soft); }
+.prose blockquote {
+    margin: 28px 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent);
+    font-family: var(--serif); font-size: 1.2rem; line-height: 1.55; color: var(--ink-soft);
+}
+
+/* The diagram is wider than the text column; on narrow screens it scrolls inside its own frame. */
+.figure { margin: 34px 0 30px; }
+.figure-frame {
+    overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--surface-alt); padding: 12px;
+}
+.figure svg { display: block; width: 100%; min-width: 640px; height: auto; }
+.figure figcaption { font-size: 0.86rem; color: var(--muted); margin-top: 10px; }
+
+.post-foot { border-top: 1px solid var(--line); padding-top: 26px; padding-bottom: 70px; font-size: 0.95rem; }
+
+/* Diagram parts, coloured from the tokens so they follow the theme. */
+.d-box { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.25; }
+.d-agent { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+.d-band { fill: var(--surface-sunk); stroke: var(--line-strong); stroke-width: 1.25; }
+.d-line { fill: none; stroke: var(--muted); stroke-width: 1.25; }
+.d-loop { fill: none; stroke: var(--muted); stroke-width: 1.25; stroke-dasharray: 4 3; }
+.d-arrow { fill: var(--muted); }
+.d-name { fill: var(--ink); font-weight: 600; font-size: 13px; }
+.d-text { fill: var(--ink); font-size: 13px; }
+.d-small { fill: var(--body); font-size: 11.5px; }
+.d-quiet { fill: var(--muted); font-size: 11.5px; }
+.d-head { fill: var(--muted); font-size: 11.5px; font-weight: 600; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #0b1322; color: #7a879f; padding: 26px 0; font-size: 0.855rem; }
+.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.site-footer a { color: #a9b5cc; }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ink: #eef1f7;
+        --ink-soft: #cdd5e4;
+        --body: #a7b2c6;
+        --muted: #8592aa;
+        --line: #263145;
+        --line-strong: #364461;
+        --surface: #121a29;
+        --surface-alt: #0d1420;
+        --surface-sunk: #1b2434;
+        --accent: #e05070;
+        --accent-soft: rgba(224, 80, 112, 0.14);
+        --accent-ink: #f18ba2;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+    .site-nav { background: rgba(18, 26, 41, 0.9); }
+    .site-footer { background: #080e19; }
+}
+
+@media (max-width: 560px) {
+    .nav-links a { padding: 7px 8px; }
+    .page-head, .post-head { padding-top: 44px; }
+}

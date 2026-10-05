@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six phases, two loops: how I'm putting AI agents across the entire SDLC | Said Reklaoui</title>
+    <meta name="description" content="Everyone uses AI to write code faster. Then the code piles up waiting for review. So I mapped the whole software lifecycle and put an agent on every phase.">
+    <meta name="author" content="Said Reklaoui">
+    <meta name="theme-color" content="#101a2e">
+    <link rel="canonical" href="https://sreklaoui.github.io/blog/ai-sdlc-map/">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Six phases, two loops: how I'm putting AI agents across the entire SDLC">
+    <meta property="og:description" content="Using AI only to write code just moves the bottleneck. A map of the whole lifecycle, an agent on every phase, and the two loops that make it improve itself.">
+    <meta property="og:url" content="https://sreklaoui.github.io/blog/ai-sdlc-map/">
+    <meta property="og:image" content="https://sreklaoui.github.io/logos/profile-picture.png">
+    <meta property="article:published_time" content="2026-10-05">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../blog.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Six phases, two loops: how I'm putting AI agents across the entire SDLC",
+      "datePublished": "2026-10-05",
+      "author": { "@type": "Person", "name": "Said Reklaoui", "url": "https://sreklaoui.github.io/" },
+      "mainEntityOfPage": "https://sreklaoui.github.io/blog/ai-sdlc-map/"
+    }
+    </script>
+</head>
+<body>
+    <nav class="site-nav" aria-label="Main">
+        <div class="wrap nav-inner">
+            <a href="../../" class="nav-brand">Said Reklaoui</a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../" class="active">Writing</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <header class="wrap narrow post-head">
+                <span class="eyebrow">AI in the SDLC</span>
+                <h1>Six phases, two loops: how I'm putting AI agents across the entire SDLC</h1>
+                <p class="post-dek">Everyone uses AI to write code faster. Cool. Then the code piles up waiting for review. So I mapped the whole lifecycle and put an agent on every phase.</p>
+                <p class="post-meta">Said Reklaoui &middot; <time datetime="2026-10-05">5 October 2026</time> &middot; 5 min read</p>
+            </header>
+
+            <div class="wrap narrow prose">
+                <p>Here's what bugs me about how most teams &ldquo;adopt AI&rdquo;: they plug it into one place, writing code, and call it done. The code gets written faster, and then it just sits there. Waiting for review. Waiting for someone to check it actually works. Waiting in the on-call queue when it breaks.</p>
+
+                <p>You didn't speed anything up. You moved the bottleneck.</p>
+
+                <p>So I stopped collecting AI initiatives and did something more boring. I took the whole lifecycle, six phases, and asked two questions for each one: where does this phase live, and what would an agent do there? This is the map that came out of it, and it's what I'm building against as an AI engineer at Oneclick.</p>
+
+                <figure class="figure">
+                    <div class="figure-frame">
+                        <svg viewBox="0 0 760 752" role="img" aria-labelledby="map-title map-desc" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+                            <title id="map-title">The AI-SDLC map</title>
+                            <desc id="map-desc">Six phases in order: Plan, Build, Review, Verify, Operate, Learn. Each row lists what the phase touches and what the agent does there. A shared knowledge layer sits above all phases and an internal agent platform sits below them. Two feedback loops: incident response sends fix pull requests back to Review, and the outer loop sends review feedback back to Build.</desc>
+                            <defs>
+                                <marker id="map-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="d-arrow" d="M0 0L10 5L0 10z"/></marker>
+                            </defs>
+
+                            <!-- Shared knowledge layer -->
+                            <rect class="d-band" x="88" y="20" width="648" height="52" rx="8"/>
+                            <text class="d-name" x="104" y="41">Shared knowledge (cross-cutting)</text>
+                            <text class="d-quiet" x="104" y="59">Knowledge base &#183; engineering playbook &#183; agent instructions &#183; one source for people and agents</text>
+
+                            <!-- Column headers -->
+                            <text class="d-head" x="148" y="96" text-anchor="middle">Phase</text>
+                            <text class="d-head" x="240" y="96">Where it lives</text>
+                            <text class="d-head" x="476" y="96">What the agent does</text>
+
+                            <!-- Phase order and the two loops -->
+                            <g class="d-line">
+                                <path d="M148 184V196" marker-end="url(#map-arrow)"/>
+                                <path d="M148 272V284" marker-end="url(#map-arrow)"/>
+                                <path d="M148 360V372" marker-end="url(#map-arrow)"/>
+                                <path d="M148 448V460" marker-end="url(#map-arrow)"/>
+                                <path d="M148 536V548" marker-end="url(#map-arrow)"/>
+                            </g>
+                            <path class="d-loop" d="M88 586H40V234H88" marker-end="url(#map-arrow)"/>
+                            <path class="d-loop" d="M88 498H68V322H88" marker-end="url(#map-arrow)"/>
+                            <text class="d-quiet" x="34" y="410" text-anchor="middle" transform="rotate(-90 34 410)">Outer loop: review feedback improves the agents</text>
+                            <text class="d-quiet" x="62" y="410" text-anchor="middle" transform="rotate(-90 62 410)">Incident response: the fix goes back to review</text>
+
+                            <!-- 1 Plan -->
+                            <rect class="d-box" x="88" y="108" width="120" height="76" rx="8"/>
+                            <rect class="d-box" x="224" y="108" width="220" height="76" rx="8"/>
+                            <rect class="d-agent" x="460" y="108" width="276" height="76" rx="8"/>
+                            <path class="d-line" d="M208 146H224M444 146H460"/>
+                            <text class="d-name" x="148" y="150" text-anchor="middle">1 &#183; Plan</text>
+                            <text class="d-text" x="240" y="132">Issue tracker</text>
+                            <text class="d-quiet" x="240" y="150">Tickets, projects, events</text>
+                            <text class="d-name" x="476" y="132">Agents listening to the tracker</text>
+                            <text class="d-small" x="476" y="152">Tickets describe the problem,</text>
+                            <text class="d-small" x="476" y="168">not micro-tasks for the model</text>
+
+                            <!-- 2 Build -->
+                            <rect class="d-box" x="88" y="196" width="120" height="76" rx="8"/>
+                            <rect class="d-box" x="224" y="196" width="220" height="76" rx="8"/>
+                            <rect class="d-agent" x="460" y="196" width="276" height="76" rx="8"/>
+                            <path class="d-line" d="M208 234H224M444 234H460"/>
+                            <text class="d-name" x="148" y="238" text-anchor="middle">2 &#183; Build</text>
+                            <text class="d-text" x="240" y="220">Coding agents</text>
+                            <text class="d-quiet" x="240" y="238">Shared skills and commands</text>
+                            <text class="d-quiet" x="240" y="254">Code repositories</text>
+                            <text class="d-name" x="476" y="220">Skills audit + migration pipeline</text>
+                            <text class="d-small" x="476" y="240">Skills tuned per model, with evals</text>
+                            <text class="d-small" x="476" y="256">Agent-driven backend migration</text>
+
+                            <!-- 3 Review -->
+                            <rect class="d-box" x="88" y="284" width="120" height="76" rx="8"/>
+                            <rect class="d-box" x="224" y="284" width="220" height="76" rx="8"/>
+                            <rect class="d-agent" x="460" y="284" width="276" height="76" rx="8"/>
+                            <path class="d-line" d="M208 322H224M444 322H460"/>
+                            <text class="d-name" x="148" y="326" text-anchor="middle">3 &#183; Review</text>
+                            <text class="d-text" x="240" y="308">Pull requests</text>
+                            <text class="d-quiet" x="240" y="326">Human review is the bottleneck</text>
+                            <text class="d-name" x="476" y="308">Risk-based review gate</text>
+                            <text class="d-small" x="476" y="328">Classifies each PR: low, medium, high</text>
+                            <text class="d-small" x="476" y="344">&#8594; agent-only, paired or full human</text>
+
+                            <!-- 4 Verify -->
+                            <rect class="d-box" x="88" y="372" width="120" height="76" rx="8"/>
+                            <rect class="d-box" x="224" y="372" width="220" height="76" rx="8"/>
+                            <rect class="d-agent" x="460" y="372" width="276" height="76" rx="8"/>
+                            <path class="d-line" d="M208 410H224M444 410H460"/>
+                            <text class="d-name" x="148" y="414" text-anchor="middle">4 &#183; Verify</text>
+                            <text class="d-text" x="240" y="396">Dev environment</text>
+                            <text class="d-quiet" x="240" y="414">Browser &#183; dev DB &#183; test users</text>
+                            <text class="d-quiet" x="240" y="430">Evidence on the ticket</text>
+                            <text class="d-name" x="476" y="396">Verification layer</text>
+                            <text class="d-small" x="476" y="416">The agent checks its own work in dev</text>
+                            <text class="d-small" x="476" y="432">and attaches proof to the ticket</text>
+
+                            <!-- 5 Operate -->
+                            <rect class="d-box" x="88" y="460" width="120" height="76" rx="8"/>
+                            <rect class="d-box" x="224" y="460" width="220" height="76" rx="8"/>
+                            <rect class="d-agent" x="460" y="460" width="276" height="76" rx="8"/>
+                            <path class="d-line" d="M208 498H224M444 498H460"/>
+                            <text class="d-name" x="148" y="502" text-anchor="middle">5 &#183; Operate</text>
+                            <text class="d-text" x="240" y="484">Chat &#183; error monitoring</text>
+                            <text class="d-quiet" x="240" y="502">Incidents and alerts</text>
+                            <text class="d-name" x="476" y="484">Triage + incident response</text>
+                            <text class="d-small" x="476" y="504">Prioritises incidents, first RCA</text>
+                            <text class="d-small" x="476" y="520">Opens a fix PR; auto-merge if low risk</text>
+
+                            <!-- 6 Learn -->
+                            <rect class="d-box" x="88" y="548" width="120" height="76" rx="8"/>
+                            <rect class="d-box" x="224" y="548" width="220" height="76" rx="8"/>
+                            <rect class="d-agent" x="460" y="548" width="276" height="76" rx="8"/>
+                            <path class="d-line" d="M208 586H224M444 586H460"/>
+                            <text class="d-name" x="148" y="590" text-anchor="middle">6 &#183; Learn</text>
+                            <text class="d-text" x="240" y="572">Review comments</text>
+                            <text class="d-quiet" x="240" y="590">Skills and agent instructions</text>
+                            <text class="d-name" x="476" y="572">Outer loop</text>
+                            <text class="d-small" x="476" y="592">Reads review feedback continuously</text>
+                            <text class="d-small" x="476" y="608">and rewrites the agents' instructions</text>
+
+                            <!-- Platform -->
+                            <rect class="d-band" x="88" y="640" width="648" height="88" rx="8"/>
+                            <text class="d-name" x="104" y="664">Internal agent platform (the base for everything above)</text>
+                            <text class="d-quiet" x="104" y="684">One agent per job: model, instructions, workspace and permissions</text>
+                            <text class="d-quiet" x="104" y="700">Reacts to events from chat and the issue tracker &#183; shared tools, skills and company knowledge</text>
+                            <text class="d-quiet" x="104" y="716">Model-agnostic: swap the model per agent &#183; its own account, so its cost is visible</text>
+                        </svg>
+                    </div>
+                    <figcaption>Each row is a phase, where it lives and what the agent does there. The dashed arrows are the two feedback loops.</figcaption>
+                </figure>
+
+                <p>Fair warning: this isn't a victory lap. The platform is up, and most of what sits on it is being built right now. I'm writing it down because drawing this map is what made the plan click.</p>
+
+                <h2>It all runs on one platform</h2>
+                <p>I didn't want six tools duct-taped together. So I built one internal platform where every agent is defined by its job: which model, what instructions, what workspace, what it's allowed to touch. Agents react to events (a new ticket, a message, an alert) and share the same skills and the same company knowledge.</p>
+                <p>Two decisions I'd make again tomorrow:</p>
+                <ul>
+                    <li><strong>Never marry a model.</strong> Any agent can swap its model without a rewrite. Today's best model won't be next quarter's.</li>
+                    <li><strong>Agents get their own account.</strong> I want to see exactly what they cost, separate from what people cost.</li>
+                </ul>
+
+                <h2>Phase by phase</h2>
+
+                <h3>1. Plan</h3>
+                <p>The biggest win here isn't a tool, it's a habit. Engineers hand the agent tiny tasks and then babysit every line. That's buying a car and pushing it. A ticket should describe the problem and what done looks like, the way a product person would write it, and then you let the agent run. Where I want us: several projects moving in parallel, with agents carrying them for days.</p>
+
+                <h3>2. Build</h3>
+                <p>Skills and commands are a product, not a folder of prompts. I'm auditing ours so each one is tuned to the model that runs it, with evals that prove a change actually made it better. The first big bet is an agent-driven backend migration: one feature, end to end, before anyone tries to scale it.</p>
+
+                <h3>3. Review</h3>
+                <p>Once agents write the code, review is where everything jams. One engineer with agents opens more pull requests a day than anyone can read. So I put a gate in front of it: every PR gets classified by risk. Low: an agent reviews it. Medium: a paired review. High: full human review. Human attention goes where it actually changes the outcome.</p>
+
+                <h3>4. Verify</h3>
+                <p>&ldquo;It compiles&rdquo; is not proof. I give the agent the same things a developer uses to check their own work: a browser, the dev database and its own test users in the app. Then it attaches the evidence to the ticket. The reviewer starts from proof, not from trust.</p>
+
+                <h3>5. Operate</h3>
+                <p>Two agents on the production side. One reads incidents, sets the priority and writes a first root-cause analysis before a human even opens it. The other reads the errors and opens a pull request with the fix, auto-merged when the risk is low.</p>
+
+                <h3>6. Learn</h3>
+                <p>This one's my favourite. An agent reads every review comment, spots the feedback that keeps coming back and rewrites the skills and instructions the other agents work from. Say it once and you never have to say it again.</p>
+
+                <h2>The loops are the whole point</h2>
+                <p>A straight line from Plan to Operate is just automation. The two dashed arrows are what make it get better:</p>
+                <ul>
+                    <li><strong>Incident response back to Review.</strong> An agent's fix is still a pull request. It goes through the same gate as everything else, and only low-risk fixes skip the human.</li>
+                    <li><strong>Outer loop back to Build.</strong> Review feedback flows into the skills the next build uses. Every review makes the next PR a little better.</li>
+                </ul>
+                <blockquote>Without the loops, each phase gets faster. With them, the system gets better every time it runs.</blockquote>
+
+                <h2>The boring part that decides everything</h2>
+                <ul>
+                    <li><strong>One source of truth, for people and agents.</strong> Agents can't act across the stack without business context. Where that knowledge lives, and how docs for humans and context for agents split, is the decision I'm still closing.</li>
+                    <li><strong>Delegate problems, not tasks.</strong> It's a habit, and it's the hardest one to change.</li>
+                    <li><strong>Go deep before going wide.</strong> One project end to end, then pull out the patterns. Rolling half-baked agents out to every team at once teaches you nothing.</li>
+                    <li><strong>Write the playbook.</strong> How we verify, which commands, how we work. A new joiner should be useful from day one.</li>
+                </ul>
+
+                <h2>What's next</h2>
+                <p>Ordering. A prioritised timeline for everything on the map, and picking the first project to take all the way. I'll write up what works, and what blows up.</p>
+            </div>
+
+            <div class="wrap narrow post-foot">
+                <p>Building something like this? Let's compare notes. <a href="https://www.linkedin.com/in/said-reklaoui-chouaibi-14b42b33" target="_blank" rel="noopener">Find me on LinkedIn</a>.</p>
+                <p><a href="../">&larr; All writing</a></p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <span>&copy; 2026 Said Reklaoui &middot; Barcelona, Spain</span>
+            <span><a href="https://www.linkedin.com/in/said-reklaoui-chouaibi-14b42b33" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/sreklaoui" target="_blank" rel="noopener">GitHub</a></span>
+        </div>
+    </footer>
+</body>
+</html>

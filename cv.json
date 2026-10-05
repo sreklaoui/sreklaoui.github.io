@@ -1,12 +1,12 @@
 {
   "name": "Said Reklaoui",
-  "headline": "VP of Engineering · Applied AI",
-  "tagline": "I lead engineering teams building AI systems that run in production.",
+  "headline": "AI Engineer · LLMs, RAG & agents",
+  "tagline": "I build AI systems that run in production.",
   "location": "Barcelona, Spain",
   "linkedin": "linkedin.com/in/said-reklaoui-chouaibi-14b42b33",
   "github": "github.com/sreklaoui",
   "site": "sreklaoui.github.io",
-  "summary": "VP of Engineering focused on applied AI. For the last three years I have built LLM-powered pipelines, retrieval-augmented generation, agent orchestration over MCP and fine-tuned open models on local inference, alongside AI woven through the software development lifecycle itself. What makes that work hold up is the fifteen years underneath it: shipping AI is a systems problem — evaluation, guardrails, cost, latency, observability and a team that can maintain it — and that is where architecture and engineering leadership earn their keep.",
+  "summary": "AI Engineer focused on applied AI in production. For the last three years I have built LLM-powered pipelines, retrieval-augmented generation, agent orchestration over MCP and fine-tuned open models on local inference, alongside AI woven through the software development lifecycle itself. What makes that work hold up is the fifteen years underneath it: shipping AI is a systems problem — evaluation, guardrails, cost, latency, observability and a team that can maintain it — and that is where architecture and engineering leadership earn their keep.",
   "ai_focus": [
     "LLMs & Prompt/Context Engineering",
     "Retrieval-Augmented Generation",
@@ -22,7 +22,7 @@
       "period": "Current",
       "roles": [
         {
-          "title": "VP of Engineering",
+          "title": "AI Engineer · VP of Engineering",
           "highlights": [
             "Set the engineering and AI strategy: where AI creates real leverage, where it does not, and the quality practices that let teams trust what it produces.",
             "Built the Activity Generator Service: an LLM-powered activity generation platform with versioned prompt catalogues, schema-validated output, multimodal document processing and per-batch cost control.",
