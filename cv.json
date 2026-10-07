@@ -127,9 +127,9 @@
       "tech": "LLMs, Structured Outputs, Prompt Engineering, Evaluation, LangChain, LangGraph, NestJS, PostgreSQL, Redis"
     },
     {
-      "name": "AI-assisted Pull Request Analysis",
-      "description": "Context-aware code review platform that analyses structure, dependencies, impact and risk instead of an isolated diff, using review planning, specialised agents and parallel checks.",
-      "tech": "LLMs, AI Agents, Structured Outputs, Context Engineering"
+      "name": "CodeGuard — AI Code Review Platform (personal project)",
+      "description": "Code review platform that analyses structure, dependencies, impact and risk using specialised agents in parallel plus a verification pass. Served open models (Qwen3-Coder 30B → Qwen3.6-35B MoE, FP8) with vLLM on RunPod serverless GPUs behind an async job API; migrating from Ollama to vLLM took throughput from 78 to 226 tok/s aggregate at 5 concurrent sessions, ran a 128k context on a 96 GB GPU, and cut cold start by baking FP8 weights (image 164 GB → 40 GB). Golden-corpus bench for recall/precision and per-review cost billing, which later moved inference to a price-routed gateway.",
+      "tech": "vLLM, RunPod, GPU Inference, FP8, Qwen, AI Agents, Evaluation, Python"
     },
     {
       "name": "RAG FAQ Agent on Vertex AI",
