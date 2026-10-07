@@ -618,19 +618,23 @@
                     </article>
 
                     <article class="work-card reveal">
-                        <span class="work-kicker">SDLC automation</span>
-                        <h3>AI-assisted Pull Request Analysis</h3>
-                        <p>A context-aware code review platform that goes beyond the diff to analyse code structure, dependencies, impact and risk.</p>
+                        <span class="work-kicker">Self-hosted inference &middot; personal project</span>
+                        <h3>CodeGuard &mdash; AI Code Review Platform</h3>
+                        <p>A code review platform that goes beyond the diff to analyse code structure, dependencies, impact and risk &mdash; running on open models I served myself on GPUs.</p>
                         <ul class="work-points">
-                            <li>Builds structured code context instead of reviewing an isolated patch</li>
-                            <li>Plans the review, then runs specialised agents and parallel checks</li>
-                            <li>Surfaces meaningful issues so teams raise the quality bar of review</li>
+                            <li>Served open models (Qwen3-Coder 30B &rarr; Qwen3.6-35B MoE, FP8) with vLLM on RunPod serverless GPUs, behind an async job API</li>
+                            <li>Migrated serving from Ollama to vLLM for continuous batching: 78 &rarr; 226 tok/s aggregate at 5 concurrent review sessions</li>
+                            <li>128k context on a 96 GB GPU; cut cold start by baking official FP8 weights (image 164 GB &rarr; 40 GB) and trimming vLLM boot</li>
+                            <li>Builds structured code context, then runs specialised agents in parallel with a verification pass</li>
+                            <li>Golden-corpus bench for recall and precision, and billing on measured cost per review &mdash; the data that later moved inference to a price-routed model gateway</li>
                         </ul>
                         <div class="tags">
-                            <span class="tag">LLMs</span>
+                            <span class="tag">vLLM</span>
+                            <span class="tag">RunPod</span>
+                            <span class="tag">GPU Inference</span>
+                            <span class="tag">FP8</span>
                             <span class="tag">AI Agents</span>
-                            <span class="tag">Structured Outputs</span>
-                            <span class="tag">Context Engineering</span>
+                            <span class="tag">Evaluation</span>
                         </div>
                     </article>
 
