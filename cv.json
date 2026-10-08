@@ -24,11 +24,12 @@
         {
           "title": "AI Engineer · VP of Engineering",
           "highlights": [
-            "Set the engineering and AI strategy: where AI creates real leverage, where it does not, and the quality practices that let teams trust what it produces.",
-            "Built the Activity Generator Service: an LLM-powered activity generation platform with versioned prompt catalogues, schema-validated output, multimodal document processing and per-batch cost control.",
-            "Drive AI adoption across the software development lifecycle, establishing practical guardrails and reusable approaches for AI-assisted development.",
-            "Lead architecture, delivery and the development of autonomous, high-performing teams.",
-            "Partner with product, business, customers and external providers to manage technical risk and turn complex needs into sustainable solutions."
+            "Lead a 20+ person engineering organisation across backend, frontend, infrastructure and AI.",
+            "Leading the adoption of AI agents across the whole software lifecycle, on an internal model-agnostic agent platform.",
+            "Raised engineering standards with mutation testing and quality gates in CI, and led an observability push that cut production error issues by ~75%.",
+            "Hands-on in event-driven systems on AWS (Kinesis, Lambda, SQS/SNS, ECS) for a multi-country platform, including high-throughput sync recovery.",
+            "Set architecture direction for a major API migration and for scaling an AI tutor in production.",
+            "Built the Activity Generator Service: an LLM-powered activity generation platform with versioned prompt catalogues, schema-validated output, multimodal document processing and per-batch cost control."
           ]
         }
       ]
