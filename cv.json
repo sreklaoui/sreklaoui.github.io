@@ -1,19 +1,20 @@
 {
   "name": "Said Reklaoui",
-  "headline": "AI Engineer · LLMs, RAG & agents",
-  "tagline": "I build AI systems that run in production.",
+  "headline": "AI Engineer · LLMs, agents & ML in production",
+  "tagline": "I build products with AI in them, and I build them with AI.",
   "location": "Barcelona, Spain",
   "linkedin": "linkedin.com/in/said-reklaoui-chouaibi-14b42b33",
   "github": "github.com/sreklaoui",
   "site": "sreklaoui.github.io",
-  "summary": "AI Engineer focused on applied AI in production. For the last three years I have built LLM-powered pipelines, retrieval-augmented generation, agent orchestration over MCP and fine-tuned open models on local inference, alongside AI woven through the software development lifecycle itself. What makes that work hold up is the fifteen years underneath it: shipping AI is a systems problem — evaluation, guardrails, cost, latency, observability and a team that can maintain it — and that is where architecture and engineering leadership earn their keep.",
+  "summary": "AI Engineer. For the last three years almost everything I build has a model doing real work in it: classifiers and fine-tuned LLMs for customer support, LLM pipelines with structured output and cost control, agents over MCP, and open models I serve myself on GPUs. I also build my own products (an AI code reviewer, a sim-racing telemetry app and a meeting copilot) and I build them with coding agents, end to end. What I've learned doing it: the model is the easy part. Evaluation, real data, cost and tests are what make it hold up, and that's where fifteen years of backend engineering pays off.",
   "ai_focus": [
-    "LLMs & Prompt/Context Engineering",
-    "Retrieval-Augmented Generation",
-    "AI Agents & MCP",
-    "Fine-tuning & Local Inference",
-    "Evaluation & Guardrails",
-    "AI in the SDLC"
+    "LLM apps · structured output · tool calling",
+    "RAG",
+    "Agents & MCP",
+    "Evaluation",
+    "ML classification (XGBoost)",
+    "Fine-tuning & model serving",
+    "Building with coding agents"
   ],
   "experience": [
     {
@@ -22,15 +23,15 @@
       "period": "Current",
       "roles": [
         {
-          "title": "AI Engineer · VP of Engineering",
+          "title": "AI Engineer",
           "highlights": [
-            "Lead a 20+ person engineering organisation across backend, frontend, infrastructure and AI.",
-            "Leading the adoption of AI agents across the whole software lifecycle, on an internal model-agnostic agent platform.",
-            "Raised engineering standards with mutation testing and quality gates in CI, and led an observability push that cut production error issues by ~75%.",
-            "Hands-on in event-driven systems on AWS (Kinesis, Lambda, SQS/SNS, ECS) for a multi-country platform, including high-throughput sync recovery.",
-            "Set architecture direction for a major API migration and for scaling an AI tutor in production.",
-            "Built the Activity Generator Service: an LLM-powered activity generation platform with versioned prompt catalogues, schema-validated output, multimodal document processing and per-batch cost control."
-          ]
+            "Built the Activity Generator Service: learning activities written by an LLM from a topic or a source PDF, with a versioned prompt catalogue, schema-validated output, multimodal PDF chunking and cost control per batch.",
+            "Building an internal, model-agnostic agent platform and the agents that run on it across the whole SDLC: a risk-based gate that decides which PRs an agent can review alone, agents that check their own work in dev and attach the proof to the ticket, and incident triage with a first root-cause analysis.",
+            "Worked on scaling an AI tutor in production and on the architecture of a major API migration.",
+            "Added mutation testing and quality gates to CI, and an observability push that cut production error issues by ~75%.",
+            "Event-driven systems on AWS (Kinesis, Lambda, SQS/SNS, ECS) for a multi-country platform, including high-throughput sync recovery."
+          ],
+          "tech": "LLMs, LangChain, LangGraph, Structured Outputs, NestJS, TypeScript, PostgreSQL, Redis, AWS."
         }
       ]
     },
@@ -42,21 +43,20 @@
         {
           "title": "AI Engineer",
           "highlights": [
-            "Designed and shipped email classification pipelines using ML and NLP, combining XGBoost with fine-tuned LLMs (Gemma 3B/7B).",
-            "Led a core event orchestrator automating key support flows — cancellations, modifications and hotel confirmations — integrating Dixa and Google Cloud.",
-            "Orchestrated intelligent agents over the Model Context Protocol (MCP) to infer customer intent and trigger automated actions through external APIs.",
-            "Fine-tuned and converted Hugging Face models to optimised formats (GGUF) for local inference with Ollama.",
-            "Built internal annotation tooling so operations teams could label and curate training data.",
-            "Automated support workflows through multi-label classification and LLM-assisted response generation."
+            "Built email classification pipelines for customer support: XGBoost for the multi-label part, fine-tuned LLMs (Gemma 3B/7B) where plain ML fell short.",
+            "Built the event orchestrator behind the main support flows (cancellations, changes, hotel confirmations) on Dixa and Google Cloud.",
+            "Agents over MCP that work out what the customer wants and act on it through external APIs.",
+            "Fine-tuned Hugging Face models and converted them to GGUF to run locally with Ollama.",
+            "Built the annotation tool the operations team used to label and curate training data."
           ],
-          "tech": "Python, LLMs, Gemma, Hugging Face, Ollama, MCP, XGBoost, Pandas, GCP, Docker."
+          "tech": "Python, XGBoost, LLMs, Gemma, Hugging Face, Ollama, MCP, Pandas, GCP, Docker."
         },
         {
           "title": "Backend Engineer",
           "highlights": [
-            "Built and maintained backend services in Go and PHP using hexagonal architecture, DDD, and strong testing and observability practices.",
-            "Designed decoupled, event-driven systems with Pub/Sub orchestrating service-to-service communication.",
-            "Managed infrastructure and deployment workflows with Jenkins, Cloud Run and Cloud SQL."
+            "Backend services in Go and PHP with hexagonal architecture, DDD, and real testing and observability.",
+            "Decoupled, event-driven systems with Pub/Sub between services.",
+            "Infrastructure and deploys with Jenkins, Cloud Run and Cloud SQL."
           ],
           "tech": "Go, PHP, Google Cloud (Cloud Run, Pub/Sub, Cloud SQL), Jenkins, MySQL, Docker, OpenTelemetry."
         }
@@ -70,9 +70,9 @@
         {
           "title": "Backend Engineer & Tech Lead, Automotive Vertical",
           "highlights": [
-            "Tech lead for the automotive vertical, coordinating design and implementation across the car marketplace.",
-            "Built PHP microservices with hexagonal architecture and asynchronous projections for cross-system data consistency.",
-            "Integrated Carfax vehicle-history data and built event-driven workflows on AWS Lambda (Go) with DynamoDB."
+            "Tech lead for the automotive vertical of the marketplace.",
+            "PHP microservices with hexagonal architecture and asynchronous projections to keep data consistent across systems.",
+            "Integrated Carfax vehicle history, and built event-driven workflows on AWS Lambda (Go) with DynamoDB."
           ],
           "tech": "PHP, Go, AWS Lambda, DynamoDB, MySQL, RabbitMQ, Docker, Microservices."
         }
@@ -86,7 +86,7 @@
         {
           "title": "Senior Software Engineer",
           "highlights": [
-            "Built a Symfony microservice to manage an internal business process."
+            "Built a Symfony microservice for an internal business process."
           ],
           "tech": "PHP, Symfony, MySQL, RabbitMQ, Docker."
         }
@@ -100,7 +100,7 @@
         {
           "title": "Operations Manager",
           "highlights": [
-            "Led a cross-functional team of four to create and integrate a new business opportunity, reporting directly to the CEO."
+            "Ran a team of four (backend, frontend, DevOps) to launch a new line of business, reporting to the CEO."
           ],
           "tech": "PHP, Symfony, MySQL, Docker, Elasticsearch."
         }
@@ -114,7 +114,7 @@
         {
           "title": "Senior Software Engineer",
           "highlights": [
-            "Led software projects end to end, from design through delivery."
+            "Software projects end to end, from design to delivery."
           ],
           "tech": "PHP, Symfony, MySQL, Docker, Elasticsearch, DDD, TDD."
         }
@@ -123,31 +123,36 @@
   ],
   "projects": [
     {
+      "name": "CodeGuard — AI code review (my own product)",
+      "description": "Reviews pull requests against each team's own rules, written in plain prose, not a generic linter's. Specialised agents run in parallel over structured code context, then a verification pass drops what doesn't hold up. I served the models myself first (Qwen3-Coder 30B → Qwen3.6-35B MoE, FP8, vLLM on RunPod serverless GPUs): moving from Ollama to vLLM took throughput from 78 to 226 tok/s at 5 concurrent reviews, with 128k context on a 96 GB GPU and the image cut from 164 GB to 40 GB for faster cold starts. A golden-corpus bench measures recall and precision, and the cost per review it measured is what later moved inference to hosted models behind a price-routed gateway. Built with coding agents: 670+ commits and 1,700+ tests that run in under a minute.",
+      "tech": "Python, vLLM, RunPod, Qwen, OpenRouter, AI Agents, Evaluation, MongoDB, React, Docker"
+    },
+    {
+      "name": "RaceIQ Live — sim-racing telemetry (my own product)",
+      "description": "Live overlay and post-session analysis for iRacing: it tells you where you gain or lose time against any reference lap you pick. Turns 60 Hz telemetry from every car into laps, sectors and a continuous distance→time delta; lap times match iRacing's own within 2 ms, and the tests replay real recorded sessions instead of mocks. A scheduled agent reviews every new recording on its own, audits it and opens the issue and the fix. Next up is Coach, an AI agent that reads your telemetry and tells you which corners cost you time. ~200 commits in three weeks, built with coding agents.",
+      "tech": "Python, Time-series telemetry, Tauri, AI Agents, GitHub Actions, Windows installer"
+    },
+    {
+      "name": "Sotto — AI meeting copilot (my own product)",
+      "description": "Desktop app that transcribes meetings live, suggests what to answer and files each one with notes. Speech runs locally with Whisper (~0.4 s per chunk on GPU), and a small local model decides in ~0.2 s whether someone actually asked you something before a bigger model writes the answer, so you only pay when it matters. Semantic search over past meetings, MCP both ways (a client with OAuth 2.1 to Gmail, Slack, Linear and others, asking before any write, and its own MCP server so Claude can query your meetings) and cost tracked per day. Linux, Windows and macOS builds from CI. Built with coding agents.",
+      "tech": "Python, Whisper, Qwen3 4B (local), OpenRouter, MCP, Embeddings, GitHub Actions"
+    },
+    {
       "name": "Activity Generator Service",
-      "description": "Generates learning activities for an education platform, either authored by an LLM from a topic or source document or extracted and converted from activities printed in a PDF. Queue-based batch processing with progress and cancellation, a versioned prompt catalogue keyed by activity template and cognitive phase, schema-validated output, multimodal PDF chunking, per-batch cost estimation and tracing over every LLM call.",
+      "description": "Learning activities for an education platform, written by an LLM from a topic or a source document, or pulled out of a printed PDF and converted. Queue-based batches with progress and cancellation, a versioned prompt catalogue per activity template and cognitive phase, schema-validated output, multimodal PDF chunking, cost estimated per batch and tracing on every LLM call.",
       "tech": "LLMs, Structured Outputs, Prompt Engineering, Evaluation, LangChain, LangGraph, NestJS, PostgreSQL, Redis"
     },
     {
-      "name": "CodeGuard — AI Code Review Platform (personal project)",
-      "description": "Code review platform that analyses structure, dependencies, impact and risk using specialised agents in parallel plus a verification pass. Served open models (Qwen3-Coder 30B → Qwen3.6-35B MoE, FP8) with vLLM on RunPod serverless GPUs behind an async job API; migrating from Ollama to vLLM took throughput from 78 to 226 tok/s aggregate at 5 concurrent sessions, ran a 128k context on a 96 GB GPU, and cut cold start by baking FP8 weights (image 164 GB → 40 GB). Golden-corpus bench for recall/precision and per-review cost billing, which later moved inference to a price-routed gateway.",
-      "tech": "vLLM, RunPod, GPU Inference, FP8, Qwen, AI Agents, Evaluation, Python"
-    },
-    {
       "name": "RAG FAQ Agent on Vertex AI",
-      "description": "Semantic retrieval over an indexed knowledge base combined with LLM generation, grounding every answer in real data to reduce hallucinations.",
+      "description": "Semantic search over an indexed knowledge base plus LLM generation, so every answer is grounded in real data.",
       "tech": "Python, Vertex AI, LangChain, Vector Search"
-    },
-    {
-      "name": "RAG LLM CV — Conversational Assistant",
-      "description": "Turns a static CV into an interactive assistant answering natural-language questions over embeddings and vector search.",
-      "tech": "Python, LangChain, Streamlit, Vertex AI"
     }
   ],
   "skills": {
-    "AI & ML": "LLMs, RAG, AI Agents, MCP, Context Engineering, LangChain, LangGraph, Fine-tuning, Embeddings, Vector Search, Evaluation, NLP, XGBoost, Hugging Face, Ollama, Vertex AI",
-    "Leadership": "Engineering Leadership, AI Strategy, Software Architecture, Delivery & Execution, Quality & Guardrails, Mentoring",
-    "Engineering": "Python, Go, PHP, Microservices, Event-Driven Systems, DDD, Hexagonal Architecture, TDD, Observability",
-    "Cloud & Data": "Google Cloud, AWS, Cloud Run, Pub/Sub, Kafka, Docker, Kubernetes, MySQL, Redis, Elasticsearch, OpenTelemetry"
+    "AI & ML": "LLMs, Structured Outputs, Tool Calling, RAG, AI Agents, MCP, Evaluation, XGBoost, NLP, Fine-tuning, Hugging Face, Embeddings, Vector Search, vLLM, Ollama, Whisper, LangChain, LangGraph, Vertex AI",
+    "Building with AI": "Coding agents (Claude Code), agent skills and instructions, evals for prompts and skills, architecture tests as guardrails, spec-first development",
+    "Engineering": "Python, Go, PHP, TypeScript, SQL, Microservices, Event-Driven Systems, DDD, Hexagonal Architecture, TDD, Observability",
+    "Cloud & Data": "Google Cloud, AWS, Cloud Run, Pub/Sub, Kafka, Docker, Kubernetes, GitHub Actions, PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch, OpenTelemetry"
   },
   "education": [
     {
